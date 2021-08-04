@@ -1,20 +1,21 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
+import Navbar from './navbar'
+import Script from 'next/script'
+import Footer from './footer'
+
 
 const name = 'AIT LAASRI Aymane'
-export const siteTitle = 'First Post'
+export const siteTitle = name + "'s Blog"
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
     return (
-        <div className={styles.container}>
+        <div>
             <Head>
+
                 <link rel="icon" hreef="/favicon.ico" />
                 <meta
                     name="description"
-                    content="Learn how to build a personal website using Next.js"
+                    content="ait laasri aymane's personnal blog that contains most of his work including his projects and articles"
                 />
                 <meta
                     property="og:image"
@@ -24,50 +25,21 @@ export default function Layout({ children, home }) {
                 />
                 <meta name="og:title" content={siteTitle} />
                 <meta name="twitter:card" content="summary_large_image" />
+
+                <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet" />
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
             </Head>
-            <header className={styles.header}>
-                {home ? (
-                    <>
-                        <Image
-                            priority
-                            src="/images/profile.png"
-                            className={utilStyles.borderCircle}
-                            height={144}
-                            width={144}
-                            alt={name}
-                        />
-                        <h1 className={utilStyles.heading2Xl}>{name}</h1>
-                    </>
-                ) : (
-                    <>
-                        <Link href="/">
-                            <a>
-                                <Image
-                                    priority
-                                    src="/images/profile.png"
-                                    className={utilStyles.borderCircle}
-                                    height={108}
-                                    width={108}
-                                    alt={name}
-                                />
-                            </a>
-                        </Link>
-                        <h2 className={utilStyles.headingLg}>
-                            <Link href="/">
-                                <a className={utilStyles.colorInherit}>{name}</a>
-                            </Link>
-                        </h2>
-                    </>
-                )}
-            </header>
+
+            <Navbar />
+
             <main>{children}</main>
-            {!home && (
-                <div className={styles.backToHome}>
-                    <Link href="/">
-                        <a>← Back to home</a>
-                    </Link>
-                </div>
-            )}
+
+            <Footer />
+
+            <Script src="https://kit.fontawesome.com/623a7f27de.js" strategy="lazyOnload" crossorigin="anonymous" />
+
         </div>
     )
 }

@@ -1,60 +1,160 @@
-.heading2Xl {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    font-weight: 800;
-    letter-spacing: -0.05rem;
-    margin: 1rem 0;
-  }
-  
-  .headingXl {
-    font-size: 2rem;
-    line-height: 1;
-    font-weight: 600;
-    letter-spacing: -0.05rem;
-    margin: 1rem 0;
-  }
-  
-  .headingLg {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    margin: 1rem 0;
-  }
-  
-  .headingMd {
-    font-size: 1.2rem;
-    line-height: 1.5;
-  }
-  
-  .borderCircle {
-    border-radius: 9999px;
-  }
-  
-  .colorInherit {
-    color: inherit;
-  }
-  
-  .padding1px {
-    padding-top: 1px;
-  }
-  
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .listItem {
-    margin: 0 0 1.25rem;
-  }
-  
-  .lightText {
-    color: #666;
-  }
+.container
+{
+width:100% !important;
+max-width: none !important;
+display:flex;
+justify-content:space-around;
+align-items:center;
+flex-wrap:wrap;
+margin: 0 !important;
+}
+.txtcontainer
+{
+width:100%;
+display:flex;
+align-items:center;
+flex-direction:column;
+font-family:Montserrat;
+color: white;
+}
+.txtcontainer p
+{
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+  margin-bottom: 0px !important;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 15%;
+/*
+Info about the multiple lines underline here
+https://nickymeuleman.netlify.app/blog/css-animated-wrapping-underline
+*/
+.txtcontainer a
+{
+  color: #FFFFFF;
+  font-family: 'Lato';
+  font-weight:400;
+  font-size: 1.7rem;
+  background: 
+    linear-gradient(to right, rgba(100, 200, 200, 1), rgba(100, 200, 200, 1)),
+    linear-gradient(to right, rgba(251, 126, 80, 1), rgba(9, 188, 138, 1), rgba(251, 126, 80, 1));
+  background-size: 0% 0.1em, 0 0.1em;
+  background-position: 100% 100%, 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.5s;
+}
+
+.showallBtn{
+  padding:15px;
+  font-size:1.2em;
+  border-radius:2px;
+  margin:30px;
+  color:#FFFFFF;
+  align-self:center;
+  background-color:#303841;
+  transition: background-color .2s;
+}
+.showallBtn:hover{
+  background-color:#9B1D20;
+}
+.showallBtn i{
+  margin-left: 5px;
+  transition: all .5s;
+}
+.showallBtn:hover i{
+  transform: translate(6px);
+}
+
+.cardDatenview{
+    display:flex;
+    flex-direction:column;
+    padding-right:10px;
+    padding-bottom:10px;
+    align-items:center;
+    text-align: right;
+}
+.cardUserinfo{
+    display:flex;
+    padding-left:10px;
+    padding-bottom:10px;
+    align-items:center;
+}
+.userinfoContainer{
+    margin-left :8px;
+    width:200px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.cardUserinfo img{
+    border-radius:50px;
+    height:40px;
+    width:40px;
+    object-fit: cover;
+}
+.cardUserinfo a{
+    color:#09BC8A;
+}
+.userinfoContainer i{
+    margin-left:5px;
+}
+
+.cardHor{
+    width:100%;
+    height:auto;
+    max-height:162px;
+    max-width:720px;
+    min-height:162px;
+    min-width:600px;
+    display:flex;
+    border-radius:10px;
+    overflow: hidden;
+}
+@media (max-width:640px)
+{
+  .cardHor{
+    width:100%;
+    height:100%;
+    max-width:600px;
+    max-height:348px;
+    min-width:200px;
+    min-height:auto;
+    flex-direction:column;
   }
+  .cardHor img{
+    max-width:none !important;
+  }
+}
+@media (max-width:522px)
+{
+  .card .container{
+      flex-direction:column;
+  }
+  .cardDatenview{
+      text-align:center;
+  }
+}
+.cardHor a{
+    margin: 10px 0px 10px 0px;
+    letter-spacing: 2px;
+}
+.cardHor p{
+  margin: 0px 10px 10px 10px;
+  line-height:1.39;
+  font-weight: 650;
+}
+.cardHor img{
+    width:100%;
+    height:auto;
+    min-height:162px;
+    min-width :200px;
+    max-height:162px;
+    max-width :288px;
+    object-fit: cover;
+    border-radius:10px 0px 0px 10px;
+}
+
+.cardHor:hover a{
+  background-size: 0 0.1em, 100% 0.1em;
+}
