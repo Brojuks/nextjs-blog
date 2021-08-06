@@ -1,0 +1,66 @@
+.aboutmediv
+{
+    margin-top: 64px;
+    height: 100vh;
+    padding: 0;
+}
+.introdiv
+{
+    display: flex;
+    align-items: center;
+}
+.hobbydiv
+{
+    background-color: #011f2e;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1033%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(1%2c 31%2c 46%2c 1)'%3e%3c/rect%3e%3cpath d='M -372.0406020185378%2c120 C -300.04%2c198.6 -156.04%2c524.6 -12.0406020185378%2c513 C 131.96%2c501.4 203.96%2c71.8 347.9593979814622%2c62 C 491.96%2c52.2 563.96%2c430.6 707.9593979814622%2c464 C 851.96%2c497.4 923.96%2c239.6 1067.9593979814622%2c229 C 1211.96%2c218.4 1353.55%2c403.2 1427.9593979814622%2c411 C 1502.37%2c418.8 1437.59%2c296.6 1440%2c268' stroke='rgba(2%2c 43%2c 58%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -681.0799859425051%2c294 C -609.08%2c244.8 -465.08%2c29.8 -321.0799859425052%2c48 C -177.08%2c66.2 -105.08%2c349 38.920014057494825%2c385 C 182.92%2c421 254.92%2c237.4 398.9200140574948%2c228 C 542.92%2c218.6 614.92%2c366 758.9200140574949%2c338 C 902.92%2c310 982.7%2c82.8 1118.9200140574949%2c88 C 1255.14%2c93.2 1375.78%2c308.8 1440%2c364' stroke='rgba(2%2c 43%2c 58%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -36.728268678618804%2c244 C 35.27%2c298 179.27%2c516.6 323.2717313213812%2c514 C 467.27%2c511.4 539.27%2c230.8 683.2717313213811%2c231 C 827.27%2c231.2 899.27%2c550.8 1043.2717313213811%2c515 C 1187.27%2c479.2 1259.27%2c92 1403.2717313213811%2c52 C 1547.27%2c12 1755.93%2c273.2 1763.2717313213811%2c315 C 1770.62%2c356.8 1504.65%2c271.8 1440%2c261' stroke='rgba(2%2c 43%2c 58%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -455.3196451595526%2c112 C -383.32%2c189 -239.32%2c492.6 -95.31964515955258%2c497 C 48.68%2c501.4 120.68%2c156.6 264.6803548404474%2c134 C 408.68%2c111.4 480.68%2c377.4 624.6803548404474%2c384 C 768.68%2c390.6 840.68%2c170.2 984.6803548404474%2c167 C 1128.68%2c163.8 1253.62%2c346.4 1344.6803548404473%2c368 C 1435.74%2c389.6 1420.94%2c293.6 1440%2c275' stroke='rgba(2%2c 43%2c 58%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1033'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-attachment: fixed;
+    background-size: cover;
+}
+.hobbydiv h3{
+    color: #09BC8A;
+    margin: 0;
+}
+.expCard
+{
+    margin-top: 65px;
+}
+.expCard h3{
+    color: #09BC8A;
+}
+.customcardTitle
+{
+    height: 120px;
+    display: flex;
+    justify-content: center;
+}
+.customcard
+{
+    padding-right: 20px;
+    border-right: 2px solid rgba(128, 128, 128, 0.3);
+    border-left: 2px solid rgba(128, 128, 128, 0.3);
+}
+@media only screen and (max-width: 601px)
+{
+    .aboutmediv
+{
+    margin-top: 56px;
+}
+    .customcardTitle{
+        height: auto;
+    }
+    .customcard
+    {
+        padding-right: auto;
+        border-right: 0px solid rgba(128, 128, 128, 0.3);
+        border-left: 0px solid rgba(128, 128, 128, 0.3);
+        padding-bottom: 20px;
+        border-bottom: 2px solid rgba(128, 128, 128, 0.3);
+        padding-top: 20px;
+        border-top: 2px solid rgba(128, 128, 128, 0.3);
+        margin: 0px 0px 20px 0px;
+    }
+    .introdiv
+    {
+        display: block;
+    }
+}

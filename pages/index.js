@@ -3,6 +3,8 @@ import Link from 'next/link'
 import styles from '../components/index.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Layout from '../components/layout'
+import Date from "../components/date"
+import classNames from 'classnames'
 
 const APIURL = `http://localhost:8080/api/v1/`
 
@@ -28,13 +30,23 @@ export async function getStaticProps() {
 
 export default function Home({ articlesData, ProjectsData }) {
   return (
-    <Layout>
+    <Layout page={"home"}>
       <Head>
         <title>Welcome to my Blog!</title>
       </Head>
-      <div id="welcome-section" className={styles.welcomeSection}>
-        <h1 className={styles.Welcomeh1}>Hey I'm Ait Laasri Aymane</h1>
-        <h2 className={styles.Welcomeh2}>an engineering student</h2>
+      {/* <div className="leftscrollpsy hide-on-small-only m3 l2 m2">
+        <ul className="section table-of-contents" style={{ position: "fixed", zIndex: "2" }}>
+          <li><a href="#welcome-section">Introduction</a></li>
+          <li><a href="#projects-section">Projects</a></li>
+          <li><a href="#articles-section">Articles</a></li>
+          <li><a href="#contact">Contact Me</a></li>
+        </ul>
+      </div> */}
+      <div id="welcome-section" className="section scrollspy">
+        <div className={classNames(styles.welcomeSection)}>
+          <h1 className={styles.Welcomeh1}>Hey I'm Ait Laasri Aymane</h1>
+          <h2 className={styles.Welcomeh2}>an engineering student</h2>
+        </div>
       </div>
       <div id="projects" className={styles.projectsSection}>
         <svg className={styles.topPrjctsBorder} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -42,12 +54,11 @@ export default function Home({ articlesData, ProjectsData }) {
             d="M0,224L48,202.7C96,181,192,139,288,144C384,149,480,203,576,202.7C672,203,768,149,864,117.3C960,85,1056,75,1152,64C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z">
           </path>
         </svg>
-        <div id="projects-section"></div>
         <h1 className={styles.projectsh1}>These are some of my projects</h1>
-        <div className={utilStyles.container}>
+        <div id="projects-section" className={classNames(utilStyles.container, "section scrollspy")}>
           {
-            ProjectsData.map(({ title, image }) => (
-              <Link href="https://github.com/aitlaasri-aymane/BLOG_API-AIT_LAASRI" target="_blank">
+            ProjectsData.map(({ title, image, id }) => (
+              <Link key={id} href="https://github.com/aitlaasri-aymane/BLOG_API-AIT_LAASRI" target="_blank">
                 <div style={{ cursor: 'pointer', maxWidth: "576px", textAlign: "center" }} className="card">
                   <img src={"http://localhost:8080/" + image.split('public')[1]} alt="Blog" />
                   <a href="#" className={styles.ProjectTitle}><span className="hidden">&lt;</span>{title}<span className="hidden">/&gt; </span></a>
@@ -59,20 +70,19 @@ export default function Home({ articlesData, ProjectsData }) {
         <a className={utilStyles.showallBtn} href="https://github.com/aitlaasri-aymane?tab=repositories" target="_blank">Show All Projects
           <i className="fas fa-chevron-right"></i></a>
 
-        <div id="articles"></div>
+        <div id="articles" className="section scrollspy"></div>
         <h1 className={styles.projectsh1}>These are my recent Articles</h1>
-        <div className={utilStyles.container}>
+        <div id="articles-section" className={classNames(utilStyles.container, "section scrollspy")}>
           {
-            articlesData.map(({ title, content, image, User, createdAt }) => (
-              <div className="card">
+            articlesData.map(({ title, content, image, User, createdAt, id }) => (
+              <div key={id} className="card">
                 <Link href="https://github.com/aitlaasri-aymane/BLOG_API-AIT_LAASRI" target="_blank">
                   <div style={{ cursor: 'pointer' }} className={utilStyles.cardHor}>
                     <img src={"http://localhost:8080/" + image.split('public')[1]} alt="Blog" />
                     <div className={utilStyles.txtcontainer}>
                       <div style={{ textAlign: "center" }}><a href="#"><span className="hidden">&lt;</span>{title}<span className="hidden">/&gt; </span></a></div>
-                      <p>
-                        {content}
-                      </p>
+                      <div dangerouslySetInnerHTML={{ __html: "<p>" + content + "</p>" }}>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -86,7 +96,7 @@ export default function Home({ articlesData, ProjectsData }) {
                   </div>
                   <div className={utilStyles.cardDatenview}>
                     <div className={utilStyles.userinfoContainer}>
-                      {createdAt}
+                      <Date datestring={createdAt} />
                     </div>
                   </div>
                 </div>
@@ -104,7 +114,7 @@ export default function Home({ articlesData, ProjectsData }) {
           </path>
         </svg>
       </div>
-      <div id="contact" className={styles.contact}>
+      <div id="contact" className={classNames(styles.contact, "section scrollspy")}>
         <h1>Let's work together...</h1>
         <h2>You can contact me using one of the platforms below!</h2>
         <div className={utilStyles.container}>
@@ -124,9 +134,6 @@ export default function Home({ articlesData, ProjectsData }) {
           </span>
         </div>
       </div>
-      <script>
-
-      </script>
     </Layout>
   )
 }

@@ -2,7 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+  font-family: "Lato",-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   scroll-behavior: smooth !important;
   line-height: 1.6;
@@ -67,6 +67,43 @@ color: black;
 .sidenav-overlay{
   z-index: 1 !important;
 }
+.sidenav-close i{
+margin-right: 5px !important;
+}
+
+/* sidenav for home and aboutme page */
+.table-of-contents
+{
+    padding: 10px;
+    height: 80%;
+    display: table;
+    top: 50%;
+    transform: translate(0%, -50%);
+}
+.table-of-contents li{
+    border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    width: 110%;
+    transition: border-bottom 1s;
+}
+.table-of-contents li a {
+    color: white;
+    display: table-cell;
+    vertical-align: middle;
+    transition: transform,border-left 1s;
+    border-left: 6px solid rgba(128, 128, 128, 0.2);
+    border-radius: 15px;
+    transform: translate(5px,0px);
+}
+.table-of-contents li a:hover {
+    transform: translate(5px,0px);
+    border-left: 4px solid #fb7e50;
+}
+.table-of-contents li:hover {
+    border-bottom: 2px solid #fb7e50;
+}
+/* ./sidenav for home and aboutme page */
 
 .active{
 background-color:#09BC8A !important;

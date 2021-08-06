@@ -2,12 +2,21 @@ import Head from 'next/head'
 import Navbar from './navbar'
 import Script from 'next/script'
 import Footer from './footer'
-
+import { useEffect } from 'react'
 
 const name = 'AIT LAASRI Aymane'
 export const siteTitle = name + "'s Blog"
 
-export default function Layout({ children }) {
+export default function Layout({ page, children }) {
+    useEffect(() => {
+        if (typeof document !== undefined) {
+            const M = require('materialize-css/dist/js/materialize.min.js')
+            var navElems = document.querySelectorAll('.sidenav');
+            var scrollElems = document.querySelectorAll('.scrollspy');
+            var navInstances = M.Sidenav.init(navElems, {});
+            var scrollInstances = M.ScrollSpy.init(scrollElems, {});
+        }
+    }, [])
     return (
         <div>
             <Head>
@@ -32,7 +41,7 @@ export default function Layout({ children }) {
 
             </Head>
 
-            <Navbar />
+            <Navbar page={page} />
 
             <main>{children}</main>
 
