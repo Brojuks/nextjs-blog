@@ -3,6 +3,18 @@ import Link from 'next/link'
 import Layout, { siteTitle } from '../../components/layout'
 import utilStyles from '../../styles/utils.module.css'
 
+export async function getStaticPaths() {
+    const articlesRes = await fetch(`${APIURL}articles`)
+    const articlesData = await articlesRes.json()
+    const paths = articlesData.map((article) => ({
+        params: { id: article.id },
+    }))
+    return {
+        paths,
+        fallback: false
+    }
+}
+
 export default function FirstPost() {
     return (
         <Layout home>

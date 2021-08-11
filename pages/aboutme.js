@@ -2,7 +2,6 @@ import Head from "next/head"
 import styles from '../components/aboutme.module.css'
 import Layout from '../components/layout'
 import classNames from "classnames"
-import { useEffect } from 'react'
 
 export default function aboutMe() {
     return (

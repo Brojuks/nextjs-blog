@@ -45,7 +45,7 @@ export default function Layout({ page, children }) {
 
             <main>{children}</main>
 
-            <Footer />
+            <Footer page={page} />
 
             <Script src="https://kit.fontawesome.com/623a7f27de.js" strategy="lazyOnload" crossorigin="anonymous" />
 

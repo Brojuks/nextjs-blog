@@ -1,0 +1,126 @@
+.maincontainer{
+    background: #011F2E;
+    height: 100%;
+    margin-top: 64px;
+    position: relative;
+    top: 0;
+}
+.navbar{
+    background: #011F2E;
+    padding-left: 15px;
+    height: 4.5rem;
+    box-shadow: 0 2px 5px -2px black;
+    display: flex;
+    align-items: center;
+}
+.navbar i{
+    margin-right: 8px;
+    display: flex !important;
+    align-items: center;
+}
+.flexAlignCenter{
+    display: flex;
+    align-items: center;
+}
+.toppagetitle{
+    padding: 0px 0px 0px 20px;
+}
+
+@media only screen and (max-width: 668px)
+{
+    .articlesarea :global(.horizontal)
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+    .articlesarea :global(.card-image)
+    {
+        width: 100%;
+        max-width: 100% !important;
+        max-width: none;
+    }
+    .articlesarea :global(.card)
+    {
+        max-height: 100% !important;
+    }
+    .threadinfo
+    {
+        flex-direction: column;
+    }
+}
+.articlesarea :global(.card)
+{
+    flex-direction:unset !important;
+    align-items:unset !important;
+    margin: 5px 15px 15px 15px !important;
+    max-height: 300px;
+    box-shadow: none !important;
+    overflow: hidden;
+    transition:box-shadow .5s !important;
+}
+.articlesarea :global(.card):hover{
+    box-shadow: 0px 0px 20px black !important;
+}
+.articlesarea :global(.card) h3
+{
+    margin :10px 0px 10px 0px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.articlesarea :global(.card-image)
+{
+    display: flex;
+    max-width: 40% !important;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.articlesarea :global(.card-image) img
+{
+    filter: drop-shadow(1px 1px 5px black);
+    border-radius: 10px !important;
+    object-fit: cover;
+}
+.articlesarea :global(.card) span
+{
+    color: #808080;
+}
+.userthreadinfo
+{
+    width: auto;
+}
+.userthreadinfo img
+{
+    border-radius:50px;
+    height:30px;
+    width:30px;
+    object-fit: cover;
+    margin-right: 8px;
+}
+.userthreadinfo a
+{
+    color: #09BC8A !important;
+}
+.threadinfo
+{
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    color: #808080;
+    font-size: 14px;
+}
+.threadinfo i{
+    margin-left: 5px;
+}
+.tagsarea
+{
+    display: flex;
+    align-items: center;
+}
+.tagsarea :global(.badge){
+    color: white !important;
+}

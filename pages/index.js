@@ -105,8 +105,8 @@ export default function Home({ articlesData, ProjectsData }) {
           }
 
         </div>
-        <a className={utilStyles.showallBtn} href="https://github.com/aitlaasri-aymane?tab=repositories" target="_blank">Show All Articles
-          <i className="fas fa-chevron-right"></i></a>
+        <Link href="/articles/page/1"><a className={utilStyles.showallBtn}>Show All Articles
+          <i className="fas fa-chevron-right"></i></a></Link>
 
         <svg className={styles.bottomPrjctsBorder} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
           <path fill="#022B3A" fillOpacity="1"

@@ -105,7 +105,7 @@ margin-right: 5px !important;
 }
 /* ./sidenav for home and aboutme page */
 
-.active{
+.active :not(.materialboxed){
 background-color:#09BC8A !important;
 }
 
@@ -124,7 +124,7 @@ background-color:#09BC8A !important;
   margin: 15px !important;
   box-shadow: 6px 6px 6px black !important;
   color:#FFFFFF;
-  transition:opacity .5s,box-shadow .2s, font-size .2s !important;
+  transition:box-shadow .2s !important;
 }
 .card img{
   width:100%;
@@ -143,7 +143,7 @@ background-color:#09BC8A !important;
   transition:opacity .5s, font-size .2s;
 }
 .card:hover{
-  box-shadow: 0px 0px 30px black;
+  box-shadow: 0px 0px 30px black !important;
 }
 .card hr{
   border: 0;
@@ -154,9 +154,88 @@ background-color:#09BC8A !important;
   height: 1px;
 }
 
+/* pagination for articles/projects pages */
+.pagination
+{
+    border-radius: 3px;
+    margin: 0px 25px 10px 25px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.pagination .btn
+{
+    line-height: 0px;
+    padding: 0 0px;
+    background-color: #303841;
+}
+.pagination li
+{
+    margin-right: 4px;
+    margin-bottom: 4px;
+}
+.pagination .active
+{
+    background-color: #09BC8A !important;
+}
+.pagination .disabled
+{
+    background-color: #808080 !important;
+}
+.pagination li a:not(.disabled)
+{
+    color: white;
+}
+.pagination .btn:not(.disabled,.active):hover
+{
+    background-color: #808080;
+}
+@media only screen and (max-width: 992px)
+{
+.pagination {
+    width: auto;
+}
+}
+/* ./pagination for articles/projects pages */
 
+/* Cards for articles/projects pages */
+.card-content
+{
+    padding: 15px !important;
+}
+.card-content p
+{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+.card-content a
+{
+    color: white;
+}
+.card-content h3
+{
+    transition: color 0.5s;
+}
+.card-content a:hover h3
+{
+    color: #FB7E50;
+}
+.card-content hr
+{
+    background-color:#808080 !important;
+    border: none;
+    height: 2px;
+}
+/* ./Cards for articles/projects pages */
 
 footer{
+  position: relative;
+  height: 100%;
   margin :0;
   display:flex !important;
   flex-direction:column;
@@ -164,7 +243,8 @@ footer{
 }
 footer svg{
   position:relative;
-  top: 40px;
+  top: 30px;
+  height: 100%;
 }
 footer h3{
   font-family:Montserrat;
