@@ -46,7 +46,7 @@ export default function articles({ articles, pageNum }) {
             var mediaElems = document.querySelectorAll('.materialboxed');
             var mediaInstances = M.Materialbox.init(mediaElems, {});
         }
-    }, [])
+    }, [pageNum])//equivalent of componentDidUpdate with hooks
     return (
         <Layout page={"articles"}>
             <Head>
@@ -84,14 +84,14 @@ export default function articles({ articles, pageNum }) {
                     }
                     {
                         articles.length > 6 && pageNum != Math.ceil(articles.length / 6) ?
-                            <li className="btn"><Link href={`/articles/page/${pageNum + 1}`}><a><i className="material-icons">chevron_right</i></a></Link></li>
+                            <li className="btn"><Link href={`/articles/page/${parseInt(pageNum) + 1}`}><a><i className="material-icons">chevron_right</i></a></Link></li>
                             : <li className="disabled"><a><i className="material-icons">chevron_right</i></a></li>
                     }
                 </ul>
                 <div id="articlesarea" className={styles.articlesarea}>
                     {
                         articles.slice((pageNum * 6 - 6), pageNum * 6).map(({ title, image, id, content, User, createdAt }) => (
-                            <div key={id} className="col s12 m7">
+                            <div id={id} key={id} className="col s12 m7">
                                 <div className="card horizontal">
                                     <div className="card-image">
                                         <img className="hoverable responsive-img materialboxed"
@@ -101,14 +101,16 @@ export default function articles({ articles, pageNum }) {
                                     <div className="card-stacked">
                                         <div className="card-content">
                                             <div className={classNames(styles.userthreadinfo, "valign-wrapper")}>
-                                                <img src="./images/profile.png" />
-                                                <a href="#">{User.username}</a>
+                                                <img src="/images/profile.png" />
+                                                <a>{User.username}</a>
                                             </div>
-                                            <a href="#!">
-                                                <h3>{title}</h3>
-                                                <div dangerouslySetInnerHTML={{ __html: "<p>" + content + "</p>" }}>
-                                                </div>
-                                            </a>
+                                            <Link href={`/articles/${id}`}>
+                                                <a>
+                                                    <h3>{title}</h3>
+                                                    <div dangerouslySetInnerHTML={{ __html: "<p>" + content + "</p>" }}>
+                                                    </div>
+                                                </a>
+                                            </Link>
                                             <hr />
                                             <div className={classNames(styles.threadinfo)}>
                                                 <span><Date datestring={createdAt} /></span>
@@ -137,7 +139,7 @@ export default function articles({ articles, pageNum }) {
                     }
                     {
                         articles.length > 6 && pageNum != Math.ceil(articles.length / 6) ?
-                            <li className="btn"><Link href={`/articles/page/${pageNum + 1}`}><a><i className="material-icons">chevron_right</i></a></Link></li>
+                            <li className="btn"><Link href={`/articles/page/${parseInt(pageNum) + 1}`}><a><i className="material-icons">chevron_right</i></a></Link></li>
                             : <li className="disabled"><a><i className="material-icons">chevron_right</i></a></li>
                     }
                 </ul>

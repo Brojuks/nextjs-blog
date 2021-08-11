@@ -26,6 +26,16 @@ color: white;
   margin-bottom: 0px !important;
 }
 
+.txtcontainer p img{
+  object-fit: cover;
+  overflow: hidden;
+  max-height: 120px;
+  min-height: 1px;
+  max-width: 280px;
+  min-width: 1px;
+  border-radius: 5px !important;
+}
+
 /*
 Info about the multiple lines underline here
 https://nickymeuleman.netlify.app/blog/css-animated-wrapping-underline

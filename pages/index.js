@@ -58,7 +58,7 @@ export default function Home({ articlesData, ProjectsData }) {
         <div id="projects-section" className={classNames(utilStyles.container, "section scrollspy")}>
           {
             ProjectsData.map(({ title, image, id }) => (
-              <Link key={id} href="https://github.com/aitlaasri-aymane/BLOG_API-AIT_LAASRI" target="_blank">
+              <Link key={id} href="https://github.com/aitlaasri-aymane/BLOG_API-AIT_LAASRI">
                 <div style={{ cursor: 'pointer', maxWidth: "576px", textAlign: "center" }} className="card">
                   <img src={"http://localhost:8080/" + image.split('public')[1]} alt="Blog" />
                   <a href="#" className={styles.ProjectTitle}><span className="hidden">&lt;</span>{title}<span className="hidden">/&gt; </span></a>
@@ -76,11 +76,11 @@ export default function Home({ articlesData, ProjectsData }) {
           {
             articlesData.map(({ title, content, image, User, createdAt, id }) => (
               <div key={id} className="card">
-                <Link href="https://github.com/aitlaasri-aymane/BLOG_API-AIT_LAASRI" target="_blank">
+                <Link href={`/articles/${id}`}>
                   <div style={{ cursor: 'pointer' }} className={utilStyles.cardHor}>
                     <img src={"http://localhost:8080/" + image.split('public')[1]} alt="Blog" />
                     <div className={utilStyles.txtcontainer}>
-                      <div style={{ textAlign: "center" }}><a href="#"><span className="hidden">&lt;</span>{title}<span className="hidden">/&gt; </span></a></div>
+                      <div style={{ textAlign: "center" }}><a><span className="hidden">&lt;</span>{title}<span className="hidden">/&gt; </span></a></div>
                       <div dangerouslySetInnerHTML={{ __html: "<p>" + content + "</p>" }}>
                       </div>
                     </div>
@@ -91,7 +91,7 @@ export default function Home({ articlesData, ProjectsData }) {
                   <div className={utilStyles.cardUserinfo}>
                     <img src="https://www.sonaayush.com/assets/assets/images/user/users.png" alt="Avatar" />
                     <div className={utilStyles.userinfoContainer}>
-                      <a href="#">{User.username}</a>
+                      <a>{User.username}</a>
                     </div>
                   </div>
                   <div className={utilStyles.cardDatenview}>

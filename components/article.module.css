@@ -1,0 +1,144 @@
+.maincontainer
+{
+    background: #011F2E;
+    height: 100%;
+    margin-top: 64px;
+    position: relative;
+    top: 0;
+}
+.navbar{
+    background: #011F2E;
+    padding-left: 15px;
+    height: 4.5rem;
+    box-shadow: 0 2px 5px -2px black;
+    display: flex;
+    align-items: center;
+}
+.navbar i{
+    margin-right: 8px;
+    display: flex !important;
+    align-items: center;
+}
+.flexAlignCenter{
+    display: flex;
+    align-items: center;
+}
+.toppageimgtitle
+{
+    position: relative;
+    margin-top: 20px;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+}
+.toppageimgtitle img
+{
+    filter: blur(3px) brightness(0.35);
+    max-height: 600px;
+    width: 100%;
+    object-fit: cover;
+    background-color: blanchedalmond;
+    transition: filter .2s;
+}
+.toppageimgtitle img:hover
+{
+    opacity: 1 !important;
+    filter: blur(1px) brightness(0.5);
+}
+.toppageimgtitle :global(.active)
+{
+    filter: blur(0px) brightness(1) ;
+    object-fit: contain;
+}
+.toppageimgtitle :global(.active):hover
+{
+    filter: blur(0px) brightness(1) ;
+    object-fit: contain;
+}
+.toppageimgtitle .centertxtimg {
+    text-align: center;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    padding: 0px 50px 20px 50px;
+}
+.centertxtimg h2
+{
+    font-weight: bolder !important;
+}
+.centertxtimg p a
+{
+    color: #09BC8A;
+}
+.articlethreaduserinfo
+{
+        display: flex;
+        justify-content: space-between;
+}
+.articlethreaduserinfo i
+{
+        margin-left: 5px;
+}
+.articlethreaduserinfo img
+{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+}
+@media only screen and (max-width:601px) {
+    .articlethreaduserinfo
+    {
+        flex-direction: column;
+    }
+    .articlethreadcontent
+    {
+        padding: 10px !important;
+    }
+}
+@media only screen and (max-width:700px) {
+    .centertxtimg h2
+    {
+        font-size: 4vh;
+        margin: 0;
+    }
+    .toppageimgtitle img
+    {
+        min-height: 350px !important;
+    }
+
+}
+.articlethreadcontent
+{
+    position: relative;
+    background-color: #303841;
+    border-radius: 25px;
+    filter: drop-shadow(1px 1px 6px black);
+    bottom: 20px;
+    padding: 50px;
+}
+.articlethreadcontent a
+{
+    color: #09BC8A;
+}
+.threadtagsarea
+{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.threadtagsarea span
+{
+    margin-top: 5px;
+    color: #808080;
+    padding-left: 5px;
+}
+.articlethreadcontent hr
+{
+    background-color:#808080 !important;
+    border: none;
+    height: 2px !important;
+    font-weight: bold !important;
+}
