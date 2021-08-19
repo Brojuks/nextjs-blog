@@ -1,3 +1,3 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn).
 
-Preview : https://nextjs-blog-opal-kappa.vercel.app/
+Preview : https://gallant-nightingale-a12a07.netlify.app/
