@@ -103,6 +103,10 @@ margin-right: 5px !important;
 .table-of-contents li:hover {
     border-bottom: 2px solid #fb7e50;
 }
+.table-of-contents a.active{
+  border-left: 5px solid #fb7e50 !important;
+  color:#fb7e50;
+}
 /* ./sidenav for home and aboutme page */
 
 .active :not(.materialboxed){
