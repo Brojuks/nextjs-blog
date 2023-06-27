@@ -9,9 +9,9 @@ import { useEffect } from "react";
 const APIURL = `http://localhost:8080/api/v1/`;
 
 export async function getStaticPaths() {
-  const articlesRes = await fetch(`${APIURL}articles`);
-  const articlesData = await articlesRes.json();
-  const pagesArray = Array(Math.ceil(articlesData.length / 6))
+  const projectsRes = await fetch(`${APIURL}projects`);
+  const projectsData = await projectsRes.json();
+  const pagesArray = Array(Math.ceil(projectsData.length / 6))
     .fill()
     .map((currElement, index) => index + 1);
   const paths = pagesArray.map((page) => ({
@@ -24,11 +24,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const getArticles = await fetch(`${APIURL}articles`);
-  const articles = await getArticles.json();
+  const getProjects = await fetch(`${APIURL}projects`);
+  const projects = await getProjects.json();
   const pageNum = params.page;
 
-  if (!articles) {
+  if (!projects) {
     return {
       notFound: true,
     };
@@ -36,13 +36,13 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      articles,
+      projects,
       pageNum,
     }, // will be passed to the page component as props
   };
 }
 
-export default function articles({ articles, pageNum }) {
+export default function projects({ projects, pageNum }) {
   useEffect(() => {
     if (typeof document !== undefined) {
       var mediaElems = document.querySelectorAll(".materialboxed");
@@ -50,9 +50,9 @@ export default function articles({ articles, pageNum }) {
     }
   }, [pageNum]); //equivalent of componentDidUpdate with hooks
   return (
-    <Layout page={"articles"}>
+    <Layout page={"projects"}>
       <Head>
-        <title>All Articles</title>
+        <title>All Projects</title>
       </Head>
       <div
         id="maincontainer"
@@ -66,13 +66,13 @@ export default function articles({ articles, pageNum }) {
               </a>
             </Link>
             <a className={classNames(styles.flexAlignCenter, "breadcrumb")}>
-              Articles
+              Projects
             </a>
           </div>
         </div>
         <div id="toppagetitle" className={styles.toppagetitle}>
           <h2>
-            Articles{" "}
+            Projects{" "}
             <span
               style={{
                 float: "none",
@@ -80,15 +80,15 @@ export default function articles({ articles, pageNum }) {
                 fontSize: "1.2rem",
               }}
               className="new badge"
-              data-badge-caption={articles.length}
+              data-badge-caption={projects.length}
             ></span>
           </h2>
-          <p className="flow-text">Here you can find all my articles</p>
+          <p className="flow-text">Here you can find all my projects</p>
         </div>
         <ul className="pagination">
           {pageNum != 1 ? (
             <li className="btn">
-              <Link href={`/articles/page/${pageNum - 1}`}>
+              <Link href={`/projects/page/${pageNum - 1}`}>
                 <a>
                   <i className="material-icons">chevron_left</i>
                 </a>
@@ -101,13 +101,13 @@ export default function articles({ articles, pageNum }) {
               </a>
             </li>
           )}
-          {articles.length > 6 ? (
-            articles
-              .slice(0, Math.ceil(articles.length / 6))
+          {projects.length > 6 ? (
+            projects
+              .slice(0, Math.ceil(projects.length / 6))
               .map((currElement, index) =>
                 index + 1 != pageNum ? (
                   <li key={index + 2} className="btn">
-                    <Link href={`/articles/page/${index + 1}`}>
+                    <Link href={`/projects/page/${index + 1}`}>
                       <a>{index + 1}</a>
                     </Link>
                   </li>
@@ -122,9 +122,9 @@ export default function articles({ articles, pageNum }) {
               <a>1</a>
             </li>
           )}
-          {articles.length > 6 && pageNum != Math.ceil(articles.length / 6) ? (
+          {projects.length > 6 && pageNum != Math.ceil(projects.length / 6) ? (
             <li className="btn">
-              <Link href={`/articles/page/${parseInt(pageNum) + 1}`}>
+              <Link href={`/projects/page/${parseInt(pageNum) + 1}`}>
                 <a>
                   <i className="material-icons">chevron_right</i>
                 </a>
@@ -139,7 +139,7 @@ export default function articles({ articles, pageNum }) {
           )}
         </ul>
         <div id="articlesarea" className={styles.articlesarea}>
-          {articles
+          {projects
             .slice(pageNum * 6 - 6, pageNum * 6)
             .map(({ title, image, id, content, User, createdAt }) => (
               <div id={id} key={id} className="col s12 m7">
@@ -148,7 +148,7 @@ export default function articles({ articles, pageNum }) {
                     <img
                       className="hoverable responsive-img materialboxed"
                       data-caption={title}
-                      src={"http://localhost:8080/" + image.split("public")[1]}
+                      src={"http://localhost:8080" + image.split("public")[1]}
                     />
                   </div>
                   <div className="card-stacked">
@@ -162,14 +162,9 @@ export default function articles({ articles, pageNum }) {
                         <img src="/images/profile.png" />
                         <a>{User.username}</a>
                       </div>
-                      <Link href={`/articles/${id}`}>
+                      <Link href={`/projects/${id}`}>
                         <a>
                           <h3>{title}</h3>
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: "<p>" + content + "</p>",
-                            }}
-                          ></div>
                         </a>
                       </Link>
                       <hr />
@@ -187,7 +182,7 @@ export default function articles({ articles, pageNum }) {
         <ul className="pagination" style={{ marginBottom: "0px" }}>
           {pageNum != 1 ? (
             <li className="btn">
-              <Link href={`/articles/page/${pageNum - 1}`}>
+              <Link href={`/projects/page/${pageNum - 1}`}>
                 <a>
                   <i className="material-icons">chevron_left</i>
                 </a>
@@ -200,13 +195,13 @@ export default function articles({ articles, pageNum }) {
               </a>
             </li>
           )}
-          {articles.length > 6 ? (
-            articles
-              .slice(0, Math.ceil(articles.length / 6))
+          {projects.length > 6 ? (
+            projects
+              .slice(0, Math.ceil(projects.length / 6))
               .map((currElement, index) =>
                 index + 1 != pageNum ? (
                   <li key={index + 2} className="btn">
-                    <Link href={`/articles/page/${index + 1}`}>
+                    <Link href={`/projects/page/${index + 1}`}>
                       <a>{index + 1}</a>
                     </Link>
                   </li>
@@ -221,9 +216,9 @@ export default function articles({ articles, pageNum }) {
               <a>1</a>
             </li>
           )}
-          {articles.length > 6 && pageNum != Math.ceil(articles.length / 6) ? (
+          {projects.length > 6 && pageNum != Math.ceil(projects.length / 6) ? (
             <li className="btn">
-              <Link href={`/articles/page/${parseInt(pageNum) + 1}`}>
+              <Link href={`/projects/page/${parseInt(pageNum) + 1}`}>
                 <a>
                   <i className="material-icons">chevron_right</i>
                 </a>
