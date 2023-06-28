@@ -6,7 +6,7 @@ import classNames from "classnames";
 import Date from "../../../components/date";
 import { useEffect } from "react";
 
-const APIURL = `http://localhost:8080/api/v1/`;
+const APIURL = `https://37c2-196-77-38-7.ngrok-free.app/api/v1/`;
 
 export async function getStaticPaths() {
   const projectsRes = await fetch(`${APIURL}projects`);
@@ -172,7 +172,10 @@ export default function projects({ projects, pageNum }) {
                     <img
                       className="hoverable responsive-img materialboxed"
                       data-caption={title}
-                      src={"http://localhost:8080" + image.split("public")[1]}
+                      src={
+                        "https://37c2-196-77-38-7.ngrok-free.app" +
+                        image.split("public")[1]
+                      }
                     />
                   </div>
                   <div className="card-stacked">

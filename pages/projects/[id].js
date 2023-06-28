@@ -7,7 +7,7 @@ import styles from "../../components/article.module.css";
 import classNames from "classnames";
 import { useEffect } from "react";
 
-const APIURL = `http://localhost:8080/api/v1/`;
+const APIURL = `https://37c2-196-77-38-7.ngrok-free.app/api/v1/`;
 
 export async function getStaticPaths() {
   const projectsRes = await fetch(`${APIURL}projects`);
@@ -86,7 +86,10 @@ export default function projectThread({ project, projectIndex }) {
           <img
             className="responsive-img materialboxed"
             data-caption={project.title}
-            src={"http://localhost:8080/" + project.image.split("public")[1]}
+            src={
+              "https://37c2-196-77-38-7.ngrok-free.app/" +
+              project.image.split("public")[1]
+            }
             alt={project.title}
           />
           <div className={styles.centertxtimg}>

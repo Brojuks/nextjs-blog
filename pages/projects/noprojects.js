@@ -6,7 +6,7 @@ import styles from "../../components/articles.module.css";
 import classNames from "classnames";
 import { useEffect } from "react";
 
-const APIURL = `http://localhost:8080/api/v1/`;
+const APIURL = `https://37c2-196-77-38-7.ngrok-free.app/api/v1/`;
 
 export async function getStaticProps() {
   const getProjects = await fetch(`${APIURL}projects`);
