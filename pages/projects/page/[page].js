@@ -85,6 +85,30 @@ export default function projects({ projects, pageNum }) {
           </h2>
           <p className="flow-text">Here you can find all my projects</p>
         </div>
+        <div className="col s12 m7">
+          <div className="card horizontal" style={{ color: "white" }}>
+            <div className="card-stacked">
+              <div className="card-content">
+                <div
+                  style={{ display: "flex", alignItems: "center", gap: "1rem" }}
+                >
+                  <i className="fas fa-info-circle"></i>
+                  <p>
+                    Please check out my{" "}
+                    <a
+                      href="https://github.com/aitlaasri-aymane/"
+                      style={{ color: "#06BC89" }}
+                    >
+                      github
+                    </a>{" "}
+                    for more projects, since this page is still under
+                    construction and will be updated soon.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <ul className="pagination">
           {pageNum != 1 ? (
             <li className="btn">

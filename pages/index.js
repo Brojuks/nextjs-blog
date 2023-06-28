@@ -80,7 +80,11 @@ export default function Home({ articlesData, ProjectsData }) {
                     src={"http://localhost:8080/" + image.split("public")[1]}
                     alt="Blog"
                   />
-                  <a href="#" className={styles.ProjectTitle}>
+                  <a
+                    href="#"
+                    className={styles.ProjectTitle}
+                    style={{ padding: "0 1rem 0 1rem" }}
+                  >
                     <span className="hidden">&lt;</span>
                     {title}
                     <span className="hidden">/&gt; </span>
