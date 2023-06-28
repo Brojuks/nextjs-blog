@@ -86,10 +86,7 @@ export default function projectThread({ project, projectIndex }) {
           <img
             className="responsive-img materialboxed"
             data-caption={project.title}
-            src={
-              "https://37c2-196-77-38-7.ngrok-free.app/" +
-              project.image.split("public")[1]
-            }
+            src={"./images/" + project.image.split("projects/")[1]}
             alt={project.title}
           />
           <div className={styles.centertxtimg}>

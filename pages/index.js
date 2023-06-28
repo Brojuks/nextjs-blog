@@ -77,10 +77,7 @@ export default function Home({ articlesData, ProjectsData }) {
                   className="card"
                 >
                   <img
-                    src={
-                      "https://37c2-196-77-38-7.ngrok-free.app/" +
-                      image.split("public")[1]
-                    }
+                    src={"./images/" + image.split("projects/")[1]}
                     alt="Blog"
                   />
                   <a
