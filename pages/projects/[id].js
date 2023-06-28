@@ -86,7 +86,7 @@ export default function projectThread({ project, projectIndex }) {
           <img
             className="responsive-img materialboxed"
             data-caption={project.title}
-            src={"./images/" + project.image.split("projects/")[1]}
+            src={"/images/" + project.image.split("projects/")[1]}
             alt={project.title}
           />
           <div className={styles.centertxtimg}>

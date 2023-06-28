@@ -172,7 +172,7 @@ export default function projects({ projects, pageNum }) {
                     <img
                       className="hoverable responsive-img materialboxed"
                       data-caption={title}
-                      src={"./images/" + image.split("projects/")[1]}
+                      src={"/images/" + image.split("projects/")[1]}
                     />
                   </div>
                   <div className="card-stacked">
