@@ -6,7 +6,7 @@ import classNames from "classnames";
 import Date from "../../../components/date";
 import { useEffect } from "react";
 
-const APIURL = `https://37c2-196-77-38-7.ngrok-free.app/api/v1/`;
+const APIURL = `https://e380-160-177-93-176.ngrok-free.app/api/v1/`;
 
 export async function getStaticPaths() {
   const articlesRes = await fetch(`${APIURL}articles`);
@@ -149,7 +149,7 @@ export default function articles({ articles, pageNum }) {
                       className="hoverable responsive-img materialboxed"
                       data-caption={title}
                       src={
-                        "https://37c2-196-77-38-7.ngrok-free.app/" +
+                        "https://e380-160-177-93-176.ngrok-free.app/" +
                         image.split("public")[1]
                       }
                     />

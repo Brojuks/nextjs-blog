@@ -7,7 +7,7 @@ import styles from "../../components/article.module.css";
 import classNames from "classnames";
 import { useEffect } from "react";
 
-const APIURL = `https://37c2-196-77-38-7.ngrok-free.app/api/v1/`;
+const APIURL = `https://e380-160-177-93-176.ngrok-free.app/api/v1/`;
 
 export async function getStaticPaths() {
   const articlesRes = await fetch(`${APIURL}articles`);
@@ -87,7 +87,7 @@ export default function articleThread({ article, articleIndex }) {
             className="responsive-img materialboxed"
             data-caption={article.title}
             src={
-              "https://37c2-196-77-38-7.ngrok-free.app/" +
+              "https://e380-160-177-93-176.ngrok-free.app/" +
               article.image.split("public")[1]
             }
             alt={article.title}
